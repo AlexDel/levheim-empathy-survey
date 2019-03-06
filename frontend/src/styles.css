@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html, body {
+    height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: rgba(103,58,183, 0.05);
+}
+
+#header {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+welcome {
+    max-width: 900px;
+    display: block;
+    margin: 30px auto;
+}
+
+.mat-card-header-text {
+  margin-left: 0 !important;
+}
+
+mat-card-content {
+  line-height: 16px;
+}
