@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 import {IUserInfo} from '../types';
 import {UserService} from '../user.service';
@@ -10,10 +11,10 @@ import {UserService} from '../user.service';
 export class UserDataCmp {
   userInfo = <IUserInfo>{};
 
-  constructor(private UserService: UserService) {}
+  constructor(private UserService: UserService, private Router: Router) {}
 
   process() {
     this.UserService.updateUserInfo(this.userInfo);
-    console.log(this.UserService.userInfo);
+    this.Router.navigate(['empathy-survey']);
   }
 }

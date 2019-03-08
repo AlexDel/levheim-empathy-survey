@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-progress-bar *ngIf="instructionsHasRead" mode="determinate" [value]="progressValue"></mat-progress-bar>
+    <mat-card-title *ngIf="!instructionsHasRead">Начинаем тест</mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="!instructionsHasRead">
+    <p>Прочитайте приведенные утверждения и, ориентируясь на то, как вы ведете себя в подобных ситуациях, выразите свое согласие или несогласие с каждым из них. Нажимайте "Да" или "Нет"</p>
+  </mat-card-content>
+  <mat-card-content *ngIf="instructionsHasRead">
+    <p class="empathy-question">{{questions[questionId]}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      *ngIf="!instructionsHasRead"
+      mat-flat-button
+      color="primary"
+      (click)="instructionsHasRead = true">Начать опрос
+    </button>
+    <div *ngIf="instructionsHasRead">
+      <button  mat-flat-button (click)="nextQuestion(1)" color="accent">
+        Да
+      </button>
+      <button  mat-flat-button (click)="nextQuestion(0)" color="warn">
+        Нет
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+

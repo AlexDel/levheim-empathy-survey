@@ -15,6 +15,11 @@ body {
   font-weight: 500;
 }
 
+#header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 mat-card {
     max-width: 900px;
     display: block;
@@ -36,4 +41,17 @@ mat-card-content {
 
 .col-layout mat-form-field {
   width: 50%;
+}
+
+mat-card-actions button {
+  margin-right: 10px !important;
+}
+
+mat-card-header mat-progress-bar {
+  margin-bottom: 15px;
+  margin-left: -16px;
+}
+
+.empathy-question {
+  font-size: 16px;
 }
