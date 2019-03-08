@@ -15,7 +15,7 @@ body {
   font-weight: 500;
 }
 
-welcome {
+mat-card {
     max-width: 900px;
     display: block;
     margin: 30px auto;
@@ -27,4 +27,13 @@ welcome {
 
 mat-card-content {
   line-height: 16px;
+}
+
+.col-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-layout mat-form-field {
+  width: 50%;
 }

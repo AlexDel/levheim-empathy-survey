@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {WelcomeComponent} from './welcome/welcome';
+import {UserDataCmp} from './user/user'
 
 const routes: Routes = [
+  { path: 'user-data', component: UserDataCmp },
   { path: '**', component: WelcomeComponent }
 ];
 
