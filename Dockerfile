@@ -1,24 +1,29 @@
-FROM python:3.6-alpine
+FROM node:8-slim as frontend-build
 
-RUN apk add --update nodejs nodejs-npm nginx
+ENV NPM_CONFIG_LOGLEVEL error
 
-WORKDIR /home/levheim-empathy-survey
+WORKDIR /opt
 
+# Install node modules for frontend.
+COPY frontend frontend
+RUN (cd frontend && npm install && npm install -g @angular/cli && ng build)
+
+FROM nginx:1-alpine
+
+WORKDIR /data/www
+
+COPY --from=frontend-build /opt/frontend/dist .
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY . .
+RUN apk add --update python3 py-pip
 
-RUN python -m venv venv
-RUN venv/bin/pip install -r requirements.txt
+COPY backend /data/www/backend
+COPY requirements.txt /data/www/requirements.txt
 
-WORKDIR /home/levheim-empathy-survey/frontend
-
-RUN npm install
-RUN npm install -g @angular/cli
-RUN ng build
+RUN pip install -r requirements.txt
 
 EXPOSE 80
-ENTRYPOINT ["python ./backend/app.py"]
+ENTRYPOINT ["python", "/data/www/backend/app.py"]
 
 
 

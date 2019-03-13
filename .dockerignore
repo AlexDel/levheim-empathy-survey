@@ -3,3 +3,14 @@
 ./idea
 ./venv
 ./vscode
+
+
+# dependencies
+**/node_modules
+**/dist
+**/venv
+**/dist
+**/.idea
+**/.vscode
+*Dockerfile*
+*docker-compose*
