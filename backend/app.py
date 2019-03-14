@@ -4,12 +4,12 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/mehrabian-survey-question', methods=['GET'])
+@app.route('/api/mehrabian-survey-question', methods=['GET'])
 def get_question():
-    with open('./backend/mehrabian-questions.txt', encoding='utf-8') as file:
+    with open('./mehrabian-questions.txt', encoding='utf-8') as file:
         questions = file.readlines()
         return jsonify(questions)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
 

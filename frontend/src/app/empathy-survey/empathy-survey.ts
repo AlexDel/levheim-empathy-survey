@@ -19,7 +19,7 @@ export class EmpathySurveyCmp {
 
   constructor(private HttpClient: HttpClient, private UserService: UserService) {
     this.HttpClient
-      .get('http://0.0.0.0:5000//mehrabian-survey-question')
+      .get('http://0.0.0.0/api/mehrabian-survey-question')
       .subscribe((data: Array<string>) => this.questions = data);
   }
 
