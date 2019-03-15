@@ -3,13 +3,80 @@
     <mat-progress-bar *ngIf="instructionsHasRead" mode="determinate" [value]="progressValue"></mat-progress-bar>
     <mat-card-title *ngIf="!instructionsHasRead">Начинаем тест</mat-card-title>
   </mat-card-header>
-  <mat-card-content *ngIf="!instructionsHasRead">
+
+  <mat-card-content *ngIf="!instructionsHasRead && !empathyLevel">
     <p>Прочитайте приведенные утверждения и, ориентируясь на то, как вы ведете себя в подобных ситуациях, выразите свое согласие или несогласие с каждым из них. Нажимайте "Да" или "Нет"</p>
   </mat-card-content>
-  <mat-card-content *ngIf="instructionsHasRead">
+
+  <mat-card-content *ngIf="instructionsHasRead && !empathyLevel">
     <p class="empathy-question">{{questions[questionId]}}</p>
   </mat-card-content>
-  <mat-card-actions>
+
+  <mat-card-content *ngIf="instructionsHasRead && empathyLevel">
+    <p class="empathy-question"><strong>Ваш результат: {{empathyLevel}}</strong></p>
+    <table style="width: 100%">
+      <tbody>
+      <tr>
+        <td rowspan="2"  width="376">
+          <p ><strong> Пол</strong></p>
+        </td>
+        <td colspan="4"  width="194">
+          <p ><strong> Уровень эмпатических тенденций</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td  width="34">
+          <p ><strong> высокий</strong></p>
+        </td>
+        <td  width="30">
+          <p ><strong> средний</strong></p>
+        </td>
+        <td  width="25">
+          <p ><strong> низкий</strong></p>
+        </td>
+        <td  width="78">
+          <p ><strong> очень низкий</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="376">
+          <p >Юноши</p>
+        </td>
+        <td width="34">
+          <p >33-26</p>
+        </td>
+        <td width="30">
+          <p >25-17</p>
+        </td>
+        <td width="25">
+          <p >16-8</p>
+        </td>
+        <td width="78">
+          <p >7-0</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="376">
+          <p >Девушки</p>
+        </td>
+        <td width="34">
+          <p >33-30</p>
+        </td>
+        <td width="30">
+          <p >29-23</p>
+        </td>
+        <td width="25">
+          <p >22-17</p>
+        </td>
+        <td width="78">
+          <p >16-0</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="!empathyLevel">
     <button
       *ngIf="!instructionsHasRead"
       mat-flat-button

@@ -17,9 +17,11 @@ export class EmpathySurveyCmp {
 
   progressValue = 0;
 
+  empathyLevel: number;
+
   constructor(private HttpClient: HttpClient, private UserService: UserService) {
     this.HttpClient
-      .get('http://0.0.0.0/api/mehrabian-survey-question')
+      .get('/api/mehrabian-survey-question')
       .subscribe((data: Array<string>) => this.questions = data);
   }
 
@@ -29,8 +31,7 @@ export class EmpathySurveyCmp {
     if (this.answers.length < this.questions.length) {
       this.questionId++;
     } else {
-      this.UserService.calcEmpathyLevel(this.answers);
-      console.log(this.UserService.empathyLevel);
+      this.empathyLevel = this.UserService.calcEmpathyLevel(this.answers);
     }
 
     this.progressValue = this.answers.length / this.questions.length * 100;

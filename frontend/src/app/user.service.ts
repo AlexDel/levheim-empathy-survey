@@ -16,7 +16,7 @@ export class UserService {
     this.userInfo = info;
   }
 
-  calcEmpathyLevel(answers): void {
+  calcEmpathyLevel(answers): number {
     const decrement = (i) => i - 1;
 
     const positiveIdx = [1, 5, 7, 8, 9, 10, 12, 14, 16, 17, 18, 19, 25, 26, 27, 29, 31].map(decrement);
@@ -27,5 +27,7 @@ export class UserService {
         return acc + 1;
       return acc;
     }, 0);
+
+    return this.empathyLevel;
   }
 }

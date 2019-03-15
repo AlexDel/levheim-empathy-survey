@@ -16,5 +16,3 @@ services:
     restart: always
     image: flask
     build: ./backend
-    ports:
-      - "5000:5000"
