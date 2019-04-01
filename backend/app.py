@@ -10,6 +10,16 @@ def get_question():
         questions = file.readlines()
         return jsonify(questions)
 
+@app.route('/api/mehrabian-survey-question', methods=['GET'])
+def get_texts():
+    pass
+
+
+@app.route('/api/mehrabian-survey-question', methods=['POSTS'])
+def save_results():
+    pass
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
 
