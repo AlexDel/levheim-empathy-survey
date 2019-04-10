@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+import pandas
 
 app = Flask(__name__)
 CORS(app)
@@ -10,14 +11,10 @@ def get_question():
         questions = file.readlines()
         return jsonify(questions)
 
-@app.route('/api/mehrabian-survey-question', methods=['GET'])
+@app.route('/api/levheim-survey-texts', methods=['GET'])
 def get_texts():
-    pass
-
-
-@app.route('/api/mehrabian-survey-question', methods=['POSTS'])
-def save_results():
-    pass
+    df = pandas.read_csv('all_emotions.csv')
+    return jsonify(df.to_dict('records'))
 
 
 if __name__ == "__main__":
