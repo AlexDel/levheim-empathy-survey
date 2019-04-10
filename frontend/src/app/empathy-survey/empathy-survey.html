@@ -92,5 +92,8 @@
       </button>
     </div>
   </mat-card-actions>
+  <mat-card-actions *ngIf="empathyLevel">
+    <button mat-flat-button color="primary" routerLink="/text-survey">Продолжить</button>
+  </mat-card-actions>
 </mat-card>
 

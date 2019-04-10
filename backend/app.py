@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import pandas
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -14,7 +15,10 @@ def get_question():
 @app.route('/api/levheim-survey-texts', methods=['GET'])
 def get_texts():
     df = pandas.read_csv('all_emotions.csv')
-    return jsonify(df.to_dict('records'))
+    df['id'] = range(df['text'].count())
+    res = df.to_dict('records')
+    random.shuffle(res)
+    return jsonify(res)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome';
 import { UserDataCmp } from './user/user';
 import { EmpathySurveyCmp } from './empathy-survey/empathy-survey';
+import { TextSurveyCmp } from './text-survey/text-survey';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,7 +25,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AppComponent,
     WelcomeComponent,
     UserDataCmp,
-    EmpathySurveyCmp
+    EmpathySurveyCmp,
+    TextSurveyCmp
   ],
   imports: [
     BrowserAnimationsModule,
