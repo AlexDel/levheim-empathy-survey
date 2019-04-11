@@ -1,9 +1,40 @@
 <mat-card>
     <mat-card-header>
-        fffffffffff
+        <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
     </mat-card-header>
 
     <mat-card-content>
-        dddd
+        <p *ngIf="texts && texts.length > 0" style="font-size: 16px; line-height: 22px;">
+             {{texts[textId].text}}
+        </p>
+ 
+        <div class="emotion-diag">
+            <span>Стыд</span>
+            <mat-slider style="width: 250px;" min="0" max="100" step="10" value="50"></mat-slider> 
+            <span>Возбуждение</span>
+        </div>
+
+        <div class="emotion-diag">
+                <span>Отвращение</span>
+                <mat-slider style="width: 250px;" min="0" max="100" step="10" value="50"></mat-slider> 
+                <span>Гнев</span>
+        </div>
+
+        <div class="emotion-diag">
+                <span>Удивление</span>
+                <mat-slider style="width: 250px;" min="0" max="100" step="10" value="50"></mat-slider> 
+                <span>Страх</span>
+        </div>
+
+        <div class="emotion-diag">
+                <span>Радость</span>
+                <mat-slider style="width: 250px;" min="0" max="100" step="10" value="50"></mat-slider> 
+                <span>Тоска</span>
+        </div>
+    
     </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="nextText(1)">Продолжить</button>
+    </mat-card-actions>
 </mat-card>
