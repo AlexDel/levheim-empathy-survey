@@ -20,6 +20,7 @@ import {MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatSliderModule} from '@angular/material/slider';
     ReactiveFormsModule,
     HttpClientModule,
     MatProgressBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

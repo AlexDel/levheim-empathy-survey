@@ -8,8 +8,18 @@ import {UserService} from '../user.service';
     styles: [
       `
       .emotion-diag {
-        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
       }
+
+      .emotion-diag span {
+        display: block;
+        width: 100px;
+      }
+
+
 
       ::ng-deep .mat-accent .mat-slider-thumb {
         background-color: gray;
