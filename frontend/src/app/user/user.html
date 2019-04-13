@@ -5,13 +5,10 @@
   <mat-card-content>
     <form class="col-layout" name="form" #f="ngForm" novalidate>
       <mat-form-field>
-        <input matInput [(ngModel)]="userInfo.name" required placeholder="Ваше имя" name="name">
+        <input matInput [(ngModel)]="userInfo.age" required placeholder="Ваш возраст" [type]="'number'" name="age">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="userInfo.surname" required placeholder="Вашa фамилия" name="surname">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select [(ngModel)]="userInfo.sex" required placeholder="Ваш пол"  name="sex">
+        <mat-select [(ngModel)]="userInfo.sex" required placeholder="Ваш пол" name="sex">
           <mat-option [value]="'male'">
             Мужской
           </mat-option>
