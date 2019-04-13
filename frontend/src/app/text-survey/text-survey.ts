@@ -14,6 +14,10 @@ import {UserService} from '../user.service';
         align-items: center;
       }
 
+      .emotion-diag mat-slider {
+        width: 250px;
+      }
+
       .emotion-diag span {
         display: block;
         width: 100px;
@@ -44,15 +48,28 @@ export class TextSurveyCmp {
 
   progressValue = 0;
 
+  answerTemplate = {
+    'shame_excitement': 0,
+    'disgust_rage': 0,
+    'fear_surprise': 0,
+    'enjoyment_distress': 0
+  };
+
+  answer: any;
+
   constructor(private HttpClient: HttpClient, private UserService: UserService) {
+    this.answer = {...this.answerTemplate};
+
     this.HttpClient
       .get('/api/levheim-survey-texts')
       .subscribe((data: Array<string>) => this.texts = data);
   }
 
 
-  nextText(answer) {
-    this.answers.push(answer);
+  nextText() {
+    this.answers.push(this.answer);
+
+    this.answer = {...this.answerTemplate};
 
     if (this.answers.length < this.texts.length) {
       this.textId++;

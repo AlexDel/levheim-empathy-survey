@@ -12,32 +12,56 @@
 
         <div class="emotion-diag">
             <span>Стыд</span>
-            <mat-slider [thumbLabel]='true'  style="width: 250px;" min="-5" max="5" step="1" value="0"></mat-slider> 
+            <mat-slider 
+                [(ngModel)]='answer.shame_excitement'
+                [thumbLabel]='true' 
+                [min]="-5" 
+                [max]="5" 
+                [step]="1">
+            </mat-slider> 
             <span>Возбуждение</span>
         </div>
 
         <div class="emotion-diag">
                 <span>Отвращение</span>
-                <mat-slider [thumbLabel]='true' style="width: 250px;" min="-5" max="5" step="1" value="0"></mat-slider> 
+                <mat-slider 
+                    [(ngModel)]='answer.disgust_rage'
+                    [thumbLabel]='true' 
+                    [min]="-5" 
+                    [max]="5" 
+                    [step]="1">
+                </mat-slider> 
                 <span>Гнев</span>
         </div>
 
         <div class="emotion-diag">
-                <span>Удивление</span>
-                <mat-slider style="width: 250px;"  min="-5" max="5" step="1" value="0"></mat-slider> 
                 <span>Страх</span>
+                <mat-slider
+                    [(ngModel)]='answer.fear_surprise'
+                    [thumbLabel]='true' 
+                    [min]="-5" 
+                    [max]="5" 
+                    [step]="1">
+                </mat-slider> 
+                <span>Удивление</span>
         </div>
 
         <div class="emotion-diag">
-                <span>Радость</span>
-                <mat-slider style="width: 250px;"  min="-5" max="5" step="1" value="0"></mat-slider> 
-                <span>Тоска</span>
+                <span>Удовольствие</span> 
+                <mat-slider 
+                    [(ngModel)]='answer.enjoyment_distress'
+                    [thumbLabel]='true' 
+                    [min]="-5" 
+                    [max]="5" 
+                    [step]="1">
+                </mat-slider> 
+                <span>Печаль</span>
         </div>
       </div>
     
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-flat-button color="primary" (click)="nextText(1)">Продолжить</button>
+        <button mat-flat-button color="primary" (click)="nextText()">Продолжить</button>
     </mat-card-actions>
 </mat-card>
