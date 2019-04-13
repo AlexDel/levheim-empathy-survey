@@ -15,8 +15,6 @@ export class EmpathySurveyCmp {
 
   answers = [];
 
-  e = 'sss';
-
   progressValue = 0;
 
   empathyLevel: number;
