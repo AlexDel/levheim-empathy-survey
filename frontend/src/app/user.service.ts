@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import {IUserInfo} from './types';
 
@@ -10,7 +11,9 @@ export class UserService {
 
   empathyLevel = 0;
 
-  constructor() {}
+  userId: number;
+
+  constructor(private HttpClient: HttpClient) {}
 
   updateUserInfo(info: IUserInfo) {
     this.userInfo = info;
@@ -29,5 +32,14 @@ export class UserService {
     }, 0);
 
     return this.empathyLevel;
+  }
+
+  async saveUserData() {
+    const data = {
+      ...this.userInfo,
+      empathyLevel: this.empathyLevel
+    };
+
+    this.userId = await this.HttpClient.post('/api/save-results', data).toPromise().then((res: number) => res);
   }
 }

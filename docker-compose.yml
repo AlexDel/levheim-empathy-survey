@@ -16,3 +16,5 @@ services:
     restart: always
     image: flask
     build: ./backend
+    volumes:
+      - db-data:/data/www/data
