@@ -54,7 +54,17 @@ def save_results():
 
     return jsonify(user.id)
 
+@app.route('/api/save-text-result', methods=['POST'])
+def save_text_results():
+    data = request.json
+    text_answer = TextAnswer(**data)
+
+    db.session.add(text_answer)
+    db.session.commit()
+
+    return jsonify(success=True)
+
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {UserService} from '../user.service';
+import { text } from '@angular/core/src/render3';
 
 @Component({
     selector: 'text-survey',
@@ -57,6 +58,8 @@ export class TextSurveyCmp {
 
   answer: any;
 
+  surveyHasEnded = false;
+
   constructor(private HttpClient: HttpClient, private UserService: UserService) {
     this.answer = {...this.answerTemplate};
 
@@ -66,15 +69,29 @@ export class TextSurveyCmp {
   }
 
 
-  nextText() {
+  async nextText() {
     this.answers.push(this.answer);
+
+    await this.saveTextResult(this.answer, this.texts[this.textId].id);
 
     this.answer = {...this.answerTemplate};
 
     if (this.answers.length < this.texts.length) {
       this.textId++;
+    } else {
+      this.surveyHasEnded = true;
     }
 
     this.progressValue = this.answers.length / this.texts.length * 100;
+  }
+
+  saveTextResult(answer, text_id) {
+    const data = {
+      user_id: this.UserService.userId,
+      text_id: text_id,
+      text_measure: JSON.stringify(answer)
+    };
+
+    return this.HttpClient.post('/api/save-text-result', data).toPromise();
   }
 }

@@ -3,7 +3,7 @@
         <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
     </mat-card-header>
 
-    <mat-card-content>
+    <mat-card-content *ngIf='!surveyHasEnded'>
         <p *ngIf="texts && texts.length > 0" style="font-size: 16px; line-height: 22px;">
              {{texts[textId].text}}
         </p>
@@ -61,7 +61,15 @@
     
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-content *ngIf='surveyHasEnded'>
+        <h3>Опрос закончен</h3>
+        <p>
+            Спасибо, что приняли участие в нашем опросе! Благодаря Вашему вкладу мы на шаг ближе к Истине :)
+        </p>
+    </mat-card-content>
+    
+
+    <mat-card-actions *ngIf='!surveyHasEnded'>
         <button mat-flat-button color="primary" (click)="nextText()">Продолжить</button>
     </mat-card-actions>
 </mat-card>

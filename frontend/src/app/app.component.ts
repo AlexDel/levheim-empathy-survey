@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Исследование тональности текста - Лаборатория прикладной лингвистики и когнитивных исследований СФУ';
 }
