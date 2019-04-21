@@ -17,4 +17,4 @@ services:
     image: flask
     build: ./backend
     volumes:
-      - db-data:/data/www/data
+      - ./db-data:/data/www/data
