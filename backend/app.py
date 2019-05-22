@@ -1,5 +1,6 @@
 import pandas
 import random
+import string
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -23,6 +24,11 @@ class TextAnswer(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     text_id = db.Column(db.Integer)
     text_measure = db.Column(db.String(1024))
+
+class StringCode(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    code = db.Column(db.String(80), nullable=False)
 
 
 db.create_all()
@@ -58,6 +64,9 @@ def save_results():
 def save_text_results():
     data = request.json
     text_answer = TextAnswer(**data)
+
+    letters = string.ascii_uppercase
+    random_string = ''.join(random.choice(letters) for i in range(5))
 
     db.session.add(text_answer)
     db.session.commit()
