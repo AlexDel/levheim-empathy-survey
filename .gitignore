@@ -49,3 +49,6 @@ testem.log
 Thumbs.db
 
 frontend/package-lock.json
+
+/backend/Pipfile
+/backend/.idea

@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome';
-import { UserDataCmp } from './user/user';
 import { EmpathySurveyCmp } from './empathy-survey/empathy-survey';
 import { TextSurveyCmp } from './text-survey/text-survey';
 import { TextInstruction } from './text-survey/text-instruction';
@@ -27,7 +26,6 @@ import {MatRadioModule} from '@angular/material/radio';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    UserDataCmp,
     EmpathySurveyCmp,
     TextSurveyCmp,
     TextInstruction

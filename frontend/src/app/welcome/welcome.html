@@ -1,16 +1,22 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Опрос по оценке тональности текста</mat-card-title>
+    <mat-card-title>Тувинско-русский билингвизм</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>
-      Спасибо, что участвуете в нашем исследовании. Вам будет предложено 2 блока вопросов. В первом вам надо будет согласиться или не согласиться с утверждением. Во втором поставить ползунок в нужное положение.
+      Спасибо, что участвуете в нашем исследовании. Это вторая часть нашего опросника, в которой мы попросим вас оценить эмоциональное состояние текста и поставить ползунок в нужное положение.
     </p>
     <p>
-      Опрос займет порядка 30 минут. Чтобы продолжить, заполните форму и нажмитме "Продолжить"
+      Опрос займет порядка 10 минут. Чтобы продолжить, заполните ваш адрес почты и нажмитме "Продолжить"
     </p>
+    <form class="col-layout" name="form" #f="ngForm" novalidate>
+      <mat-form-field>
+        <input matInput [(ngModel)]="email" placeholder="Ваш email" required [type]="'email'" email name="email">
+      </mat-form-field>
+    </form>
+
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary" routerLink="/user-data">Продолжить</button>
+    <button mat-flat-button color="primary" [disabled]="!f.form.valid" (click)="process()">Продолжить</button>
   </mat-card-actions>
 </mat-card>

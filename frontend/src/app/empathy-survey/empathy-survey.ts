@@ -28,14 +28,6 @@ export class EmpathySurveyCmp {
   async nextQuestion(answer) {
     this.answers.push(answer);
 
-    if (this.answers.length < this.questions.length) {
-      this.questionId++;
-    } else {
-      this.empathyLevel = this.UserService.calcEmpathyLevel(this.answers);
-
-      await this.UserService.saveUserData();
-    }
-
     this.progressValue = this.answers.length / this.questions.length * 100;
   }
 }
