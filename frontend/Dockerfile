@@ -1,4 +1,4 @@
-FROM node:8-slim as frontend-build
+FROM node:12-slim as frontend-build
 
 ENV NPM_CONFIG_LOGLEVEL error
 
