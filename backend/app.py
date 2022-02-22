@@ -32,7 +32,7 @@ def get_texts():
     df['id'] = range(df['text'].count())
     res = df.to_dict('records')
     random.shuffle(res)
-    return jsonify(res[:10])
+    return jsonify(res)
 
 
 @app.route('/api/save-results', methods=['POST'])
