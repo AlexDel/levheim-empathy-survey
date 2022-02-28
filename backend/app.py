@@ -28,11 +28,11 @@ db.create_all()
 
 @app.route('/api/levheim-survey-texts', methods=['GET'])
 def get_texts():
-    df = pandas.read_csv('all_emotions.csv')
-    df['id'] = range(df['text'].count())
-    res = df.to_dict('records')
-    random.shuffle(res)
-    return jsonify(res)
+    with open('48emotions1.txt') as f:
+        texts = f.readlines()
+        texts = [{'id': i+1, 'text': text } for i,text in enumerate(texts)]
+        random.shuffle(texts)
+        return jsonify(texts)
 
 
 @app.route('/api/save-results', methods=['POST'])
